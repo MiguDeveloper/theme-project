@@ -1,0 +1,30 @@
+// movil: 376px, tablet: 810px, something: 1000px
+$breakpoint-down: (
+  //small: '23.5rem',
+  small: '35.785rem',
+  tablet: '50.625rem',
+  medium: '62.5rem',
+  desktop: '67.5rem'
+);
+
+$breakpoint-up: (
+  tablet: '50.7rem',
+);
+
+@mixin breakpoint-down($size) {
+  @media (max-width: map-get($breakpoint-down, $size)) {
+    @content;
+  }
+}
+
+@mixin breakpoint-up($size) {
+  @media (min-width: map-get($breakpoint-down, $size)) {
+    @content;
+  }
+}
+
+@mixin breakpoint-and($size1, $size2) {
+  @media (min-width: map-get($breakpoint-up, $size1)) and (max-width: map-get($breakpoint-down, $size2)) {
+    @content;
+  }
+}

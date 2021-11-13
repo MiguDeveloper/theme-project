@@ -1,0 +1,30 @@
+*,
+::after,
+::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+body {
+  font-size: var(--font-sm);
+}
+
+.container {
+  width: 90%;
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid: auto / repeat(2, 1fr);
+  grid-auto-flow: column;
+  position: relative;
+
+  @include breakpoint-down(small) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    grid: auto/1fr;
+    grid-auto-flow: row;
+  }
+}
