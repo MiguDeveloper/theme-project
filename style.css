@@ -44,6 +44,7 @@ body {
   grid: auto/repeat(2, 1fr);
   grid-auto-flow: column;
   position: relative;
+  height: 100vh;
 }
 @media (max-width: 35.785rem) {
   .container {
@@ -73,7 +74,9 @@ input.error {
 .hero__image {
   grid-column: 2/-1;
   position: relative;
-  min-height: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 @media (max-width: 35.785rem) {
   .hero__image {
@@ -140,11 +143,12 @@ input.error {
   background-position-x: left;
   background-position-y: bottom;
   background-repeat: no-repeat;
-  background-size: 65%;
+  background-size: 70%;
   width: 100%;
   height: 100%;
-  left: -168px;
-  top: -85px;
+  left: -216px;
+  top: -46px;
+  z-index: 0;
 }
 @media (max-width: 35.785rem) {
   .hero__student {
@@ -156,8 +160,8 @@ input.error {
 }
 @media (max-width: 50.625rem) {
   .hero__student {
-    left: -7px;
-    top: 21px;
+    left: -9px;
+    top: 65px;
     background-size: 44%;
   }
 }
@@ -177,6 +181,7 @@ input.error {
   max-width: 350px;
   display: flex;
   flex-direction: column;
+  align-self: center;
 }
 @media (max-width: 35.785rem) {
   .hero__target {
@@ -267,6 +272,7 @@ input.error {
   border: 1.36px solid var(--color-border-card);
   padding: 0 10px 0.7rem 17px;
   border-radius: 8px;
+  z-index: 1;
 }
 .hero__card li {
   font-size: var(--font-size-card);
