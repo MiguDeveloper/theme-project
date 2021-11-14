@@ -1,8 +1,4 @@
 $(document).ready(function () {
-  $('#fNacimiento').keydown(function (event) {
-    event.preventDefault();
-  });
-
   $('#fNacimiento').datepicker({
     dateFormat: 'dd/mm/yy',
     changeYear: true,
