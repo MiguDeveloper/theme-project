@@ -4,6 +4,7 @@
   &__image {
     grid-column: 2/-1;
     position: relative;
+    min-height: 700px;
 
     @include breakpoint-down(small) {
       grid-column: 1/-1;
@@ -73,6 +74,7 @@
     top: -85px;
 
     @include breakpoint-down(small) {
+      z-index: 1;
       background-size: 44%;
       left: 0;
       top: 18px;
@@ -82,6 +84,17 @@
       left: -7px;
       top: 21px;
       background-size: 44%;
+    }
+  }
+
+  &__bgbottom {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    @include breakpoint-down(small) {
+      display: block;
     }
   }
 
@@ -227,7 +240,7 @@
   &__col {
     display: flex;
     flex-direction: column;
-    max-width: 146px;
+    max-width: 157px;
   }
 
   &--row {
@@ -270,5 +283,36 @@
         text-decoration: underline;
       }
     }
+  }
+}
+
+.mobile {
+  &__sol,
+  &__cruz,
+  &__startright,
+  &__startleft {
+    display: none;
+    position: absolute;
+    @include breakpoint-down(small) {
+      display: block;
+    }
+  }
+
+  &__sol {
+    top: 39px;
+    right: 21px;
+  }
+
+  &__cruz {
+    top: 154px;
+    left: 16px;
+  }
+  &__startright {
+    top: 260px;
+    right: 3px;
+  }
+  &__startleft {
+    top: 443px;
+    left: 3px;
   }
 }

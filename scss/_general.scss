@@ -6,6 +6,14 @@
   box-sizing: border-box;
   font-family: 'Space Grotesk', sans-serif;
 }
+ul,
+ol {
+  padding: 0;
+}
+h2 {
+  margin-bottom: 0;
+  line-height: inherit;
+}
 
 body {
   font-size: var(--font-sm);
@@ -27,4 +35,15 @@ body {
     grid: auto/1fr;
     grid-auto-flow: row;
   }
+}
+
+label.error {
+  color: var(--color-required-error);
+}
+input.error {
+  border-color: var(--color-required-error);
+}
+
+.ui-datepicker-trigger {
+  cursor: pointer;
 }

@@ -5,12 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Beca Cometa</title>
+    <link rel="stylesheet" href="./jquery-ui.min.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <section class="hero">
       <div class="container">
         <div class="hero__image">
+          <div class="mobile__sol">
+            <img src="img/startop.png" height="35px" />
+          </div>
+          <div class="mobile__cruz">
+            <img src="img/cruzright.png" height="20px" />
+          </div>
+          <div class="mobile__startright">
+            <img src="img/startright.png" height="10px" />
+          </div>
+          <div class="mobile__startleft">
+            <img src="img/startbottom.png" height="10px" />
+          </div>
           <div class="hero__universe"></div>
           <div class="hero__student"></div>
           <div class="hero__proceso">
@@ -72,94 +85,106 @@
               </p>
             </div>
           </div>
+          <div class="hero__bgbottom">
+            <div style="height: 150px; overflow: hidden">
+              <div style="height: 150px; overflow: hidden">
+                <svg
+                  viewBox="0 0 500 150"
+                  preserveAspectRatio="none"
+                  style="height: 100%; width: 100%"
+                >
+                  <path
+                    d="M-1.41,0.50 C51.06,121.88 79.28,126.80 153.78,157.39 L258.17,192.92 L0.00,150.00 Z"
+                    style="stroke: none; fill: #fff"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="hero__target">
           <div class="hero__logo">
             <img src="img/beca-cometa.png" height="80" alt="beca cometa" />
           </div>
           <div class="hero__form">
-            <form action="#">
+            <form action="#" id="frmRegistro" autocomplete="off">
               <div class="formgroup">
-                <label for="nombre-postulante" class="formgroup__label"
-                  >Nombres *</label
-                >
+                <label for="nombres" class="formgroup__label">Nombres *</label>
                 <input
                   type="text"
                   class="formgroup__input"
-                  id="nombre-postulante"
+                  id="nombres"
+                  name="nombres"
                 />
               </div>
               <div class="formgroup">
-                <label for="pap-postulante" class="formgroup__label"
+                <label for="pApellido" class="formgroup__label"
                   >Primer apellido *</label
                 >
                 <input
                   type="text"
                   class="formgroup__input"
-                  id="pap-postulante"
+                  id="pApellido"
+                  name="pApellido"
                 />
               </div>
               <div class="formgroup">
-                <label for="sap-postulante" class="formgroup__label"
+                <label for="sApellido" class="formgroup__label"
                   >Segundo apellido *</label
                 >
                 <input
                   type="text"
                   class="formgroup__input"
-                  id="sap-postulante"
+                  id="sApellido"
+                  name="sApellido"
                 />
               </div>
               <div class="formgroup formgroup--row">
                 <div class="formgroup__col">
-                  <label for="dni-postulante" class="formgroup__label"
-                    >Nº de DNI *</label
-                  >
+                  <label for="dni" class="formgroup__label">Nº de DNI *</label>
                   <input
                     type="text"
                     class="formgroup__input"
-                    id="dni-postulante"
+                    id="dni"
+                    name="dni"
                   />
                 </div>
                 <div class="formgroup__col">
-                  <label for="fnac-postulante" class="formgroup__label"
-                    >Fecha de nacimiento</label
+                  <label for="fNacimiento" class="formgroup__label"
+                    >Fecha de nacimiento *</label
                   >
                   <input
                     type="text"
                     class="formgroup__input"
-                    id="fnac-postulante"
+                    id="fNacimiento"
+                    name="fNacimiento"
+                    placeholder="dia/mes/año"
+                    title="Mayores de 14"
                   />
                 </div>
               </div>
               <div class="formgroup">
-                <label for="email-postulante" class="formgroup__label"
+                <label for="email" class="formgroup__label"
                   >Correo electrónico *</label
                 >
                 <input
-                  type="text"
+                  type="email"
                   class="formgroup__input"
-                  id="email-postulante"
+                  id="email"
+                  name="email"
                 />
               </div>
               <div class="formgroup">
-                <label for="movil-postulante" class="formgroup__label"
+                <label for="nroCelular" class="formgroup__label"
                   >Celular *</label
                 >
                 <input
                   type="text"
                   class="formgroup__input"
-                  id="movil-postulante"
+                  id="nroCelular"
+                  name="nroCelular"
                 />
               </div>
-              <div class="formgroup">
-                <div class="formgroup__adformtutor">
-                  <p>
-                    ¡Hola! Hemos detectado que eres menor de edad, registra los
-                    datos de tu papá, mamá o tu tutor legal.
-                  </p>
-                </div>
-              </div>
-
               <div class="formgroup">
                 <p class="formgroup__terms">
                   Al registrarte, aceptas nuestros
@@ -169,7 +194,7 @@
                 </p>
               </div>
               <div class="formgroup">
-                <button type="button" class="hero__cta">
+                <button id="submitForm" type="submit" class="hero__cta">
                   Registrarme
                   <div class="hero__ctashadow"></div>
                 </button>
@@ -179,5 +204,13 @@
         </div>
       </div>
     </section>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"
+    ></script>
+    <script src="./js/jquery-ui.min.js"></script>
+    <script src="./js/app.js"></script>
   </body>
 </html>
