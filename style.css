@@ -223,6 +223,10 @@ input.error {
   position: relative;
   cursor: pointer;
 }
+.hero__cta:hover {
+  transform: scale(1.1);
+  transition: all 0.5s linear;
+}
 .hero__ctashadow {
   position: absolute;
   background: none;
