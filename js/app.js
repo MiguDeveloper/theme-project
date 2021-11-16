@@ -1,9 +1,12 @@
 $(document).ready(function () {
+  $('#show-allow').hide();
+  $('#reject14').hide();
+  $('#reject18').hide();
+
   $('#fNacimiento').datepicker({
     dateFormat: 'dd/mm/yy',
     changeYear: true,
     yearRange: '-70:+0',
-    maxDate: '-14y',
     dayNames: [
       'Domingo',
       'Lunes',
@@ -30,11 +33,35 @@ $(document).ready(function () {
       'Noviembre',
       'Deciembre',
     ],
-  });
+    onSelect: function () {
+      var date = $(this).datepicker('getDate');
+      const dateFormatISO = new Date(date).toISOString();
+      const arrDate = dateFormatISO.split('T')[0].split('-');
+      const currentDate = new Date();
+      let edad = currentDate.getFullYear() - +arrDate[0];
+      const month = currentDate.getMonth() + 1 - arrDate[1];
 
-  $('#fNacimiento').tooltip({
-    classes: {
-      'ui-tooltip': 'highlight',
+      if (month < 0 || (month === 0 && currentDate.getDate() < arrDate[2])) {
+        edad--;
+      }
+
+      if (edad > 18) {
+        console.log('eres mayor de 18');
+        $('#show-allow').hide();
+        $('#reject18').show('slow');
+        return;
+      }
+
+      if (edad < 14) {
+        console.log('eres menor de 14');
+        $('#show-allow').hide();
+        $('#reject14').show('slow');
+        return;
+      }
+
+      $('#reject18').hide('slow');
+      $('#reject14').hide('slow');
+      $('#show-allow').show('slow');
     },
   });
 

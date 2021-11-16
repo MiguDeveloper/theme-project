@@ -1,14 +1,19 @@
-// movil: 376px, tablet: 810px, something: 1000px
+// small: 572px, tablet: 810px, medium: 1000px, desktop: 1080
 $breakpoint-down: (
-  //small: '23.5rem',
-  small: '35.785rem',
-  tablet: '50.625rem',
-  medium: '62.5rem',
-  desktop: '67.5rem'
+  xsmall: '572px',
+  small: '769px',
+  tablet: '810px',
+  medium: '1000px',
+  desktop: '1080px',
+  xlarge: '1100px',
+  large: '1226px',
+  large2: '1300px',
 );
 
 $breakpoint-up: (
+  small: '770px',
   tablet: '50.7rem',
+  xlarge: '1100px',
 );
 
 @mixin breakpoint-down($size) {

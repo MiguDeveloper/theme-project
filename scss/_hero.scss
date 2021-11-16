@@ -1,13 +1,11 @@
 .hero {
-  min-height: calc(100vh - var(--pt-container));
-
   &__image {
     grid-column: 2/-1;
     position: relative;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: grid;
+    background-image: url('img/bg-puro000.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 
     @include breakpoint-down(small) {
       grid-column: 1/-1;
@@ -23,9 +21,10 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    left: 153px;
-    max-width: 341px;
-    margin-top: 5.2rem;
+    max-width: 432px;
+    justify-self: center;
+    align-self: center;
+    margin-top: 4rem;
 
     @include breakpoint-down(small) {
       left: 0;
@@ -44,50 +43,63 @@
     }
   }
 
-  &__universe {
-    position: absolute;
-    background-image: url('img/universe.png');
-    background-position-x: right;
-    background-position-y: -71px;
-    background-repeat: no-repeat;
-    background-size: 99% 106%;
-    width: 100%;
-    height: 100%;
-
-    @include breakpoint-down(small) {
-      display: none;
-    }
-
-    @include breakpoint-down(tablet) {
-      background-position-y: -48px;
-      background-size: 135%;
-    }
-  }
-
   &__student {
     position: absolute;
-    background-image: url('img/student.png');
+    background-image: url('img/student-space.png');
     background-position-x: left;
     background-position-y: bottom;
     background-repeat: no-repeat;
-    background-size: 70%;
+    background-size: 100%;
     width: 100%;
     height: 100%;
-    left: -216px;
-    top: -46px; //-85px;
+    left: -420px;
+    top: -56px;
     z-index: 0;
+
+    @include breakpoint-and(small, tablet) {
+      display: none;
+    }
+
+    @include breakpoint-and(tablet, large) {
+      background-size: 34%;
+      left: -164px;
+    }
+
+    @include breakpoint-and(xlarge, large2) {
+      background-size: 51%;
+      left: -214px;
+    }
 
     @include breakpoint-down(small) {
       z-index: 1;
-      background-size: 44%;
+      background-size: 24%;
       left: 0;
-      top: 18px;
+      top: 74px;
     }
 
-    @include breakpoint-down(tablet) {
-      left: -9px;
-      top: 65px;
-      background-size: 44%;
+    @include breakpoint-down(xsmall) {
+      z-index: 1;
+      background-size: 37%;
+      left: 0;
+      top: 74px;
+    }
+  }
+
+  &__sol {
+    position: absolute;
+    background-image: url('img/startop.png');
+    background-position-x: left;
+    background-position-y: bottom;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 20px;
+    height: 20px;
+    left: -52px;
+    top: 176px;
+    z-index: 0;
+
+    @include breakpoint-down(small) {
+      display: none;
     }
   }
 
@@ -109,6 +121,8 @@
     flex-direction: column;
 
     align-self: center;
+    justify-self: center;
+    min-width: 350px;
 
     @include breakpoint-down(small) {
       grid-column: 1/-1;
@@ -141,12 +155,17 @@
   &__cta {
     margin: 0 auto;
     padding: 8px 60px;
-    border: none;
+    border: 2px solid #000;
     border-radius: var(--size-radius-cta);
     background: var(--color-cta);
     margin-bottom: 1rem;
     position: relative;
     cursor: pointer;
+    font-weight: 700;
+    font-size: 1rem;
+    border-bottom: 5px solid #000;
+    border-right: 5px solid #000;
+    border-bottom-right-radius: 7px;
 
     &:hover {
       transform: scale(1.1);
@@ -167,22 +186,20 @@
 
   &__title {
     margin-bottom: 11px;
+    text-align: right;
 
     h1 {
       font-size: 1.45rem;
-      text-align: left;
       color: var(--color-border-cta);
       font-weight: 500;
-      padding-left: 30px;
+      margin-bottom: 5px;
 
       @include breakpoint-down(tablet) {
         padding: 0;
-        text-align: center;
       }
     }
     p {
       font-size: 1rem;
-      text-align: right;
       color: var(--color-magenta);
       font-weight: 500;
 
@@ -212,12 +229,12 @@
       color: white;
 
       h2 {
-        font-size: 11px;
+        font-size: 12px;
         margin-top: 1.2rem;
       }
 
       p {
-        font-size: 11px;
+        font-size: 12px;
       }
     }
   }
@@ -225,7 +242,7 @@
   &__ad {
     margin-top: 1.2rem;
     text-align: right;
-    max-width: 277px;
+    max-width: 340px;
     align-self: flex-end;
 
     h3 {
@@ -247,7 +264,7 @@
 .formgroup {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
+  margin-bottom: 0.7rem;
 
   &__col {
     display: flex;
@@ -270,6 +287,11 @@
     padding: 0.275rem 0.75rem;
     line-height: 1.5;
     display: block;
+
+    &--ptb {
+      padding-top: 0.36rem;
+      padding-bottom: 0.36rem;
+    }
   }
 
   &__adformtutor {
@@ -300,7 +322,6 @@
 
 .mobile {
   &__sol,
-  &__cruz,
   &__startright,
   &__startleft {
     display: none;
@@ -314,11 +335,6 @@
     top: 39px;
     right: 21px;
   }
-
-  &__cruz {
-    top: 154px;
-    left: 16px;
-  }
   &__startright {
     top: 260px;
     right: 3px;
@@ -326,5 +342,71 @@
   &__startleft {
     top: 443px;
     left: 3px;
+  }
+}
+
+.fconvocatorias {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: right;
+  margin-bottom: 5px;
+
+  @include breakpoint-down(small) {
+    font-size: 14px;
+  }
+
+  &__inicio {
+    color: var(--color-magenta);
+    margin-right: 5px;
+  }
+
+  &__fin {
+    color: white;
+    border-bottom: 3px solid var(--color-border-cta);
+  }
+
+  &__stroke {
+  }
+}
+
+.saturno {
+  position: absolute;
+  top: -50px;
+  background-image: url('img/saturno.png');
+  background-size: 80%;
+  background-repeat: no-repeat;
+  left: 58%;
+  height: 30%;
+  width: 22%;
+
+  @include breakpoint-and(xlarge, large2) {
+    background-size: 80%;
+    height: 30%;
+    width: 30%;
+    left: 65%;
+  }
+
+  @include breakpoint-down(small) {
+    display: none;
+  }
+  @include breakpoint-down(tablet) {
+    display: none;
+  }
+}
+
+.start-top {
+  position: absolute;
+  top: 119px;
+  background-image: url('img/start-uw.png');
+  background-size: 42%;
+  background-repeat: no-repeat;
+  left: 107px;
+  height: 42px;
+  width: 60px;
+
+  @include breakpoint-down(small) {
+    display: none;
   }
 }
