@@ -8,12 +8,14 @@ $breakpoint-down: (
   xlarge: '1100px',
   large: '1226px',
   large2: '1300px',
+  large3: '1400px',
 );
 
 $breakpoint-up: (
   small: '770px',
   tablet: '50.7rem',
   xlarge: '1100px',
+  large2: '1301px',
 );
 
 @mixin breakpoint-down($size) {

@@ -70,6 +70,11 @@
       left: -214px;
     }
 
+    @include breakpoint-and(large2, large3) {
+      background-size: 64%;
+      left: -267px;
+    }
+
     @include breakpoint-down(small) {
       z-index: 1;
       background-size: 24%;

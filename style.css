@@ -142,6 +142,12 @@ input.error {
     left: -214px;
   }
 }
+@media (min-width: 1301px) and (max-width: 1400px) {
+  .hero__student {
+    background-size: 64%;
+    left: -267px;
+  }
+}
 @media (max-width: 769px) {
   .hero__student {
     z-index: 1;
