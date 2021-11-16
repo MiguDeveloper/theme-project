@@ -142,7 +142,7 @@ input.error {
     left: -214px;
   }
 }
-@media (min-width: 1301px) and (max-width: 1400px) {
+@media (min-width: 1301px) and (max-width: 1550px) {
   .hero__student {
     background-size: 64%;
     left: -267px;
@@ -423,6 +423,7 @@ input.error {
   color: white;
   border-bottom: 3px solid var(--color-border-cta);
 }
+
 .saturno {
   position: absolute;
   top: -50px;
