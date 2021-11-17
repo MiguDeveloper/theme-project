@@ -3,6 +3,8 @@ $(document).ready(function () {
   $('#reject14').hide();
   $('#reject18').hide();
 
+  let cont = 0;
+
   $('#fNacimiento').datepicker({
     dateFormat: 'dd/mm/yy',
     changeYear: true,
@@ -34,7 +36,7 @@ $(document).ready(function () {
       'Deciembre',
     ],
     onSelect: function () {
-      var date = $(this).datepicker('getDate');
+      let date = $(this).datepicker('getDate');
       const dateFormatISO = new Date(date).toISOString();
       const arrDate = dateFormatISO.split('T')[0].split('-');
       const currentDate = new Date();
@@ -48,6 +50,7 @@ $(document).ready(function () {
       if (edad > 18) {
         console.log('eres mayor de 18');
         $('#show-allow').hide();
+        $('#reject14').hide();
         $('#reject18').show('slow');
         return;
       }
@@ -55,6 +58,7 @@ $(document).ready(function () {
       if (edad < 14) {
         console.log('eres menor de 14');
         $('#show-allow').hide();
+        $('#reject18').hide();
         $('#reject14').show('slow');
         return;
       }
@@ -95,6 +99,9 @@ $(document).ready(function () {
         minlength: 9,
         maxlength: 9,
       },
+      survey: {
+        required: true,
+      },
     },
     messages: {
       nombres: {
@@ -125,6 +132,43 @@ $(document).ready(function () {
         minlength: 'Minimo 9 digitos',
         maxlength: 'Máximo 9 digitos',
       },
+      survey: {
+        required: 'El campo es requerido',
+      },
+    },
+    submitHandler: function (form) {
+      if (grecaptcha.getResponse() == '') {
+        e.preventDefault();
+        alert("You can't proceed!");
+      } else {
+        alert('Thank you');
+      }
+
+      cont++;
+      // if (cont === 1) {
+      //   const swalWithBootstrapButtons = Swal.mixin({
+      //     customClass: {
+      //       confirmButton: 'btn-ok',
+      //     },
+      //     buttonsStyling: false,
+      //   });
+      //   swalWithBootstrapButtons
+      //     .fire({
+      //       icon: 'info',
+      //       title: '',
+      //       confirmButtonColor: '#ff68ff',
+      //       allowOutsideClick: false,
+      //       text: 'Hola, ya estas a punto de completar tu registro; es importante que toda la información ingresada sea actual y correcta. No olvides que debes tener acceso inmediato al correo y celular consignado.',
+      //     })
+      //     .then((result) => {
+      //       $('#submitForm').css('background', '#ffec00');
+      //     });
+      // }
+
+      // if (cont === 2) {
+      //   // submit form
+      //   console.log('enviar formulario');
+      // }
     },
   });
 });

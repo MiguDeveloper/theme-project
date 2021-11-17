@@ -69,9 +69,7 @@ input.error {
   grid-column: 2/-1;
   position: relative;
   display: grid;
-  background-image: url("img/bg-puro000.png");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+  background-color: black;
 }
 @media (max-width: 769px) {
   .hero__image {
@@ -92,6 +90,7 @@ input.error {
   justify-self: center;
   align-self: center;
   margin-top: 4rem;
+  z-index: 2;
 }
 @media (max-width: 769px) {
   .hero__proceso {
@@ -237,7 +236,7 @@ input.error {
   padding: 8px 60px;
   border: 2px solid #000;
   border-radius: var(--size-radius-cta);
-  background: var(--color-cta);
+  background: none;
   margin-bottom: 1rem;
   position: relative;
   cursor: pointer;
@@ -314,7 +313,8 @@ input.error {
 .hero__ad {
   margin-top: 1.2rem;
   text-align: right;
-  max-width: 340px;
+  max-width: 402px;
+  margin-bottom: 1rem;
   align-self: flex-end;
 }
 .hero__ad h3 {
@@ -465,6 +465,37 @@ input.error {
 }
 @media (max-width: 769px) {
   .start-top {
+    display: none;
+  }
+}
+
+.btn-ok {
+  color: black;
+  display: inline-block;
+  background-color: var(--color-cta);
+  border-radius: 0.75rem;
+  width: 6rem;
+  padding: 4px 0;
+  border: none;
+  font-weight: 700;
+  height: 3.75rem;
+  font-size: 1.125rem;
+  cursor: pointer;
+}
+
+.bg-silueta {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+}
+@media (max-width: 769px) {
+  .bg-silueta {
+    display: none;
+  }
+}
+@media (max-width: 810px) {
+  .bg-silueta {
     display: none;
   }
 }
