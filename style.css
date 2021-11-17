@@ -344,6 +344,11 @@ input.error {
   flex-direction: row;
   justify-content: space-between;
 }
+@media (max-width: 769px) {
+  .formgroup--mb {
+    margin-bottom: 2rem;
+  }
+}
 .formgroup__label {
   margin-bottom: 0.15rem;
 }
