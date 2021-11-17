@@ -138,37 +138,37 @@ $(document).ready(function () {
     },
     submitHandler: function (form) {
       if (grecaptcha.getResponse()) {
-        e.preventDefault();
-        alert('Relleno el capchat!');
+        cont++;
+        if (cont === 1) {
+          const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+              confirmButton: 'btn-ok',
+            },
+            buttonsStyling: false,
+          });
+          swalWithBootstrapButtons
+            .fire({
+              icon: 'info',
+              title: '',
+              confirmButtonColor: '#ff68ff',
+              allowOutsideClick: false,
+              text: 'Hola, ya estas a punto de completar tu registro; es importante que toda la información ingresada sea actual y correcta. No olvides que debes tener acceso inmediato al correo y celular consignado.',
+            })
+            .then((result) => {
+              $('#submitForm').css('background', '#ffec00');
+            });
+        }
+
+        if (cont === 2) {
+          // submit form
+          console.log('enviar formulario');
+        }
       } else {
-        alert('No relleno el capcha');
+        Swal.fire({
+          icon: 'error',
+          text: 'Compruebe casilla de verificación',
+        });
       }
-
-      cont++;
-      // if (cont === 1) {
-      //   const swalWithBootstrapButtons = Swal.mixin({
-      //     customClass: {
-      //       confirmButton: 'btn-ok',
-      //     },
-      //     buttonsStyling: false,
-      //   });
-      //   swalWithBootstrapButtons
-      //     .fire({
-      //       icon: 'info',
-      //       title: '',
-      //       confirmButtonColor: '#ff68ff',
-      //       allowOutsideClick: false,
-      //       text: 'Hola, ya estas a punto de completar tu registro; es importante que toda la información ingresada sea actual y correcta. No olvides que debes tener acceso inmediato al correo y celular consignado.',
-      //     })
-      //     .then((result) => {
-      //       $('#submitForm').css('background', '#ffec00');
-      //     });
-      // }
-
-      // if (cont === 2) {
-      //   // submit form
-      //   console.log('enviar formulario');
-      // }
     },
   });
 });
