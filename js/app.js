@@ -137,11 +137,11 @@ $(document).ready(function () {
       },
     },
     submitHandler: function (form) {
-      if (grecaptcha.getResponse() == '') {
+      if (grecaptcha.getResponse()) {
         e.preventDefault();
-        alert("You can't proceed!");
+        alert('Relleno el capchat!');
       } else {
-        alert('Thank you');
+        alert('No relleno el capcha');
       }
 
       cont++;
