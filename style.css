@@ -57,7 +57,8 @@ label.error {
   color: var(--color-required-error);
 }
 
-input.error {
+input.error,
+select.error {
   border-color: var(--color-required-error);
 }
 
@@ -90,7 +91,7 @@ input.error {
   justify-self: center;
   align-self: center;
   margin-top: 4rem;
-  z-index: 2;
+  z-index: 1;
 }
 @media (max-width: 769px) {
   .hero__proceso {

@@ -48,7 +48,6 @@ $(document).ready(function () {
       }
 
       if (edad > 18) {
-        console.log('eres mayor de 18');
         $('#show-allow').hide();
         $('#reject14').hide();
         $('#reject18').show('slow');
@@ -56,7 +55,6 @@ $(document).ready(function () {
       }
 
       if (edad < 14) {
-        console.log('eres menor de 14');
         $('#show-allow').hide();
         $('#reject18').hide();
         $('#reject14').show('slow');

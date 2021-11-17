@@ -39,7 +39,8 @@ body {
 label.error {
   color: var(--color-required-error);
 }
-input.error {
+input.error,
+select.error {
   border-color: var(--color-required-error);
 }
 
